@@ -271,14 +271,21 @@ const LangModule = (() => {
       const isActive = bLang === lang;
       btn.classList.toggle('lang-btn--active', isActive);
       btn.setAttribute('aria-pressed', String(isActive));
-      const flag = btn.querySelector('.lang-flag');
+
+      const flag  = btn.querySelector('.lang-flag');
+      const label = bLang === 'fr' ? 'Français' : 'English';
+
       if (flag) {
-        // Topbar : reconstruit proprement flag + texte
-        while (btn.childNodes.length > 1) btn.removeChild(btn.lastChild);
-        const flagClone = flag;  // déjà dans le DOM
-        btn.appendChild(document.createTextNode(bLang === 'fr' ? ' Français' : ' English'));
+        // Reconstruction sûre : on vide le bouton puis on réinsère flag + texte.
+        // (Aucune boucle conditionnelle sur childNodes : évite tout risque de
+        //  blocage du thread JS sur mobile, qui empêchait jusqu'ici TOUS les
+        //  boutons du site de répondre au clic.)
+        btn.innerHTML = '';
+        btn.appendChild(flag);
+        btn.appendChild(document.createTextNode(' ' + label));
       } else {
-        btn.textContent = bLang === 'fr' ? '🇫🇷 Français' : '🇬🇧 English';
+        // Menu mobile : pas de flag séparé, texte simple avec emoji
+        btn.textContent = (bLang === 'fr' ? '🇫🇷 ' : '🇬🇧 ') + label;
       }
     });
 
@@ -817,22 +824,35 @@ const MiscModule = (() => {
 
 
 /* ═══════════════════════════════════
-   INIT – Bootstrap
+   INIT – Bootstrap résilient
+   Chaque module est isolé : une erreur dans
+   l'un ne bloque jamais l'initialisation des autres.
 ═══════════════════════════════════ */
 const App = {
   init() {
-    LangModule.init();        // Multilingue en premier
-    NavbarModule.init();
-    SmoothScrollModule.init();
-    RevealModule.init();
-    CounterModule.init();
-    SliderModule.init();
-    GalleryModule.init();
-    FormModule.init();
-    WAChatModule.init();
-    BackToTopModule.init();
-    FAQModule.init();
-    MiscModule.init();
+    const modules = [
+      ['LangModule',         LangModule],
+      ['NavbarModule',       NavbarModule],
+      ['SmoothScrollModule', SmoothScrollModule],
+      ['RevealModule',       RevealModule],
+      ['CounterModule',      CounterModule],
+      ['SliderModule',       SliderModule],
+      ['GalleryModule',      GalleryModule],
+      ['FormModule',         FormModule],
+      ['WAChatModule',       WAChatModule],
+      ['BackToTopModule',    BackToTopModule],
+      ['FAQModule',          FAQModule],
+      ['MiscModule',         MiscModule],
+    ];
+
+    modules.forEach(([name, mod]) => {
+      try {
+        mod.init();
+      } catch (err) {
+        // On isole l'erreur : les modules suivants s'initialisent normalement
+        console.error(`[CLEANER PRO] Erreur dans ${name}:`, err);
+      }
+    });
   }
 };
 

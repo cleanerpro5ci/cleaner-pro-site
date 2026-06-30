@@ -77,7 +77,7 @@ p{font-size:1rem;color:var(--gray-text);line-height:1.78}
 .text--gold{color:var(--gold)}
 
 /* ── BUTTONS ── */
-.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-title);font-size:.87rem;font-weight:700;border-radius:var(--r-full);padding:11px 24px;transition:all var(--tr-med);white-space:nowrap;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-title);font-size:.87rem;font-weight:700;border-radius:var(--r-full);padding:11px 24px;transition:all var(--tr-med);white-space:nowrap;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;position:relative;z-index:1}
 .btn--primary{background:var(--navy);color:white;box-shadow:0 4px 16px rgba(13,27,75,.28)}
 .btn--primary:hover{background:var(--navy-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,27,75,.36)}
 .btn--whatsapp{background:var(--whatsapp);color:white;box-shadow:0 4px 14px rgba(37,211,102,.25)}
@@ -144,7 +144,7 @@ p{font-size:1rem;color:var(--gray-text);line-height:1.78}
 .nav__link:hover::after,.nav__link.active::after{width:60%}
 .navbar__cta{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .navbar__social{display:flex;gap:5px;align-items:center}
-.nav-social-btn{width:29px;height:29px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--gray-light);color:var(--navy);transition:var(--tr-fast);border:1px solid var(--gray-mid)}
+.nav-social-btn{width:29px;height:29px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--gray-light);color:var(--navy);transition:var(--tr-fast);border:1px solid var(--gray-mid);touch-action:manipulation;-webkit-tap-highlight-color:transparent;position:relative;z-index:1}
 .nav-social-btn--fb:hover{background:var(--fb);color:white;border-color:var(--fb)}
 .nav-social-btn--tk:hover{background:#010101;color:white;border-color:#010101}
 .nav-social-btn--ig:hover{background:linear-gradient(135deg,#E1306C,#F77737);color:white;border-color:transparent}
@@ -162,7 +162,7 @@ p{font-size:1rem;color:var(--gray-text);line-height:1.78}
 .mobile__link:hover{background:var(--gray-light);color:var(--gold-dark)}
 .mobile__divider{height:1px;background:var(--gray-mid);margin:8px 0}
 .mobile__social-row{display:flex;gap:8px;flex-wrap:wrap;padding:6px 14px}
-.mob-soc{display:flex;align-items:center;gap:7px;font-family:var(--font-title);font-size:.78rem;font-weight:700;padding:7px 13px;border-radius:var(--r-full);transition:var(--tr-fast);border:1.5px solid var(--gray-mid);color:var(--navy)}
+.mob-soc{display:flex;align-items:center;gap:7px;font-family:var(--font-title);font-size:.78rem;font-weight:700;padding:7px 13px;border-radius:var(--r-full);transition:var(--tr-fast);border:1.5px solid var(--gray-mid);color:var(--navy);touch-action:manipulation;-webkit-tap-highlight-color:transparent;position:relative;z-index:1}
 .mob-soc--fb:hover{background:var(--fb);color:white;border-color:var(--fb)}
 .mob-soc--tk:hover{background:#010101;color:white;border-color:#010101}
 .mob-soc--ig:hover{background:var(--ig-start);color:white;border-color:var(--ig-start)}
@@ -300,7 +300,7 @@ em.hero__title--gold{font-style:normal;color:var(--gold)}
 .gallery{padding:var(--s-2xl) 0;background:white}
 .gallery__container{max-width:1300px;margin:0 auto;padding:0 var(--s-md)}
 .gallery__tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:var(--s-xl)}
-.gallery__tab{font-family:var(--font-title);font-size:.8rem;font-weight:700;padding:8px 20px;border-radius:var(--r-full);color:var(--gray-text);background:var(--gray-light);border:2px solid transparent;transition:var(--tr-med);cursor:pointer}
+.gallery__tab{font-family:var(--font-title);font-size:.8rem;font-weight:700;padding:8px 20px;border-radius:var(--r-full);color:var(--gray-text);background:var(--gray-light);border:2px solid transparent;transition:var(--tr-med);cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;position:relative;z-index:1}
 .gallery__tab:hover{border-color:var(--gold);color:var(--navy)}
 .gallery__tab--active{background:var(--navy);color:var(--gold);box-shadow:var(--sh-md)}
 .gallery__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-md)}
@@ -404,7 +404,7 @@ em.hero__title--gold{font-style:normal;color:var(--gold)}
 .contact__social{margin-top:var(--s-lg)}
 .contact__social-title{font-family:var(--font-title);font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:var(--s-sm)}
 .contact__social-row{display:flex;gap:8px;flex-wrap:wrap}
-.csoc{display:flex;align-items:center;gap:7px;font-family:var(--font-title);font-size:.78rem;font-weight:700;padding:8px 16px;border-radius:var(--r-full);transition:var(--tr-fast);border:2px solid var(--gray-mid);color:var(--navy);background:white}
+.csoc{display:flex;align-items:center;gap:7px;font-family:var(--font-title);font-size:.78rem;font-weight:700;padding:8px 16px;border-radius:var(--r-full);transition:var(--tr-fast);border:2px solid var(--gray-mid);color:var(--navy);background:white;touch-action:manipulation;-webkit-tap-highlight-color:transparent;position:relative;z-index:1}
 .csoc--fb:hover{background:var(--fb);color:white;border-color:var(--fb)}
 .csoc--tk:hover{background:#010101;color:white;border-color:#010101}
 .csoc--ig:hover{background:linear-gradient(135deg,var(--ig-start),var(--ig-end));color:white;border-color:transparent}
@@ -445,7 +445,7 @@ em.hero__title--gold{font-style:normal;color:var(--gold)}
 .footer__slogan{font-style:italic;font-size:.88rem;color:var(--gold);opacity:.75;margin-bottom:var(--s-sm)}
 .footer__desc{font-size:.82rem;color:rgba(255,255,255,.42);line-height:1.75;margin-bottom:var(--s-md)}
 .footer__social{display:flex;gap:8px}
-.fsoc{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);transition:var(--tr-fast)}
+.fsoc{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);transition:var(--tr-fast);touch-action:manipulation;-webkit-tap-highlight-color:transparent;position:relative;z-index:1}
 .fsoc:hover{transform:translateY(-3px)}
 .fsoc--fb:hover{background:var(--fb);color:white;border-color:var(--fb)}
 .fsoc--tk:hover{background:#010101;color:white;border-color:#010101}
@@ -474,7 +474,7 @@ em.hero__title--gold{font-style:normal;color:var(--gold)}
 /* ── WHATSAPP CHAT AUTOMATISÉ ── */
 .wa-chat{position:fixed;bottom:var(--s-lg);right:var(--s-lg);z-index:950;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
 
-.wa-chat__fab{width:60px;height:60px;border-radius:50%;background:var(--whatsapp);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(37,211,102,.45);transition:var(--tr-med);position:relative}
+.wa-chat__fab{width:60px;height:60px;border-radius:50%;background:var(--whatsapp);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(37,211,102,.45);transition:var(--tr-med);position:relative;touch-action:manipulation;-webkit-tap-highlight-color:transparent;z-index:1}
 .wa-chat__fab:hover{background:var(--whatsapp-dk);transform:scale(1.1);box-shadow:0 14px 40px rgba(37,211,102,.55)}
 
 .wa-chat__badge{position:absolute;top:-4px;right:-4px;width:20px;height:20px;background:#EF4444;color:white;border-radius:50%;font-family:var(--font-title);font-size:.68rem;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid white;animation:badgePulse 2s ease infinite}

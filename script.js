@@ -397,6 +397,14 @@ const RevealModule = (() => {
   const init = () => {
     const els = document.querySelectorAll('.reveal');
     if (!els.length) return;
+
+    // Filet de sécurité : si IntersectionObserver est indisponible
+    // (anciens navigateurs / certains WebViews), on affiche tout immédiatement
+    if (typeof IntersectionObserver === 'undefined') {
+      els.forEach(el => el.classList.add('visible'));
+      return;
+    }
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -405,7 +413,16 @@ const RevealModule = (() => {
         }
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
     els.forEach(el => observer.observe(el));
+
+    // Filet de sécurité supplémentaire : si pour une raison quelconque
+    // un élément n'est jamais révélé (bug navigateur, calcul de viewport
+    // raté sur certains mobiles), on force son affichage après 2.5s.
+    // Cela garantit qu'AUCUN bouton ne reste invisible ou inatteignable.
+    setTimeout(() => {
+      els.forEach(el => el.classList.add('visible'));
+    }, 2500);
   };
   return { init };
 })();
@@ -608,32 +625,33 @@ const FormModule = (() => {
     clearError(id); return true;
   };
 
-  const simulate = (btn, success) => {
-    btn.classList.add('loading'); btn.disabled = true;
+  const simulate = (btn) => {
+    btn.classList.add('loading');
+    btn.disabled = true;
+
     setTimeout(() => {
-      btn.classList.remove('loading'); btn.disabled = false;
+      btn.classList.remove('loading');
+      btn.disabled = false;
 
-      // Retirer hidden et relancer l'animation vert à chaque fois
-      success.setAttribute('hidden', '');       // reset d'abord
-      success.classList.remove('form-success--green');
-      // Forcer un reflow pour relancer l'animation
-      void success.offsetWidth;
-      success.classList.add('form-success--green');
-      success.removeAttribute('hidden');
-      success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      // Confirmation directement sur le bouton (plus de bloc séparé)
+      const textEl = btn.querySelector('.btn__text');
+      const original = textEl ? textEl.textContent : '';
+      if (textEl) {
+        textEl.textContent = Store.lang === 'en' ? '✓ Request sent!' : '✓ Demande envoyée !';
+      }
+      btn.classList.add('btn--success');
 
-      // Masquer après 7 secondes et remettre le formulaire à zéro
       setTimeout(() => {
         document.getElementById('contactForm')?.reset();
-        success.setAttribute('hidden', '');
-      }, 7000);
-    }, 1400);
+        if (textEl) textEl.textContent = original;
+        btn.classList.remove('btn--success');
+      }, 4000);
+    }, 1200);
   };
 
   const init = () => {
-    const form    = document.getElementById('contactForm');
-    const btn     = document.getElementById('submitBtn');
-    const success = document.getElementById('formSuccess');
+    const form = document.getElementById('contactForm');
+    const btn  = document.getElementById('submitBtn');
     if (!form) return;
     Object.keys(rules).forEach(id => {
       const el = document.getElementById(id);
@@ -647,7 +665,7 @@ const FormModule = (() => {
         return el ? validate(id, el.value) : true;
       }).every(Boolean);
       if (!ok) { form.querySelector('.error')?.focus(); return; }
-      simulate(btn, success);
+      simulate(btn);
     });
   };
   return { init };

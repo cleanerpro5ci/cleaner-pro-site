@@ -51,7 +51,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet" />
 
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- Anti-cache : force le navigateur et Vercel à toujours servir les derniers fichiers -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <link rel="stylesheet" href="style.css?v=a610bdd6" />
 
   <!-- Schema.org – LocalBusiness (SEO structuré) -->
   <script type="application/ld+json">
@@ -1001,11 +1006,6 @@
               <svg class="btn__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
               <span class="btn__loader"></span>
             </button>
-            <div class="form-success form-success--green" id="formSuccess" role="status" aria-live="polite" aria-atomic="true" hidden>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <strong data-fr="Demande envoyée avec succès !" data-en="Request sent successfully!">Demande envoyée avec succès !</strong>
-              <p data-fr="Notre équipe vous contactera sous 2h. Merci de votre confiance." data-en="Our team will contact you within 2h. Thank you for your trust.">Notre équipe vous contactera sous 2h. Merci de votre confiance.</p>
-            </div>
           </form>
         </div>
 
@@ -1109,13 +1109,13 @@
         <button class="wa-chat__close" id="waBubbleClose" aria-label="Fermer le chat">×</button>
       </div>
       <div class="wa-chat__msg">
-        <p data-fr="Bonjour ! Je suis disponible pour répondre à vos questions sur nos services de nettoyage à Abidjan. Comment puis-je vous aider ?" data-en="Hello! I am available to answer your questions about our cleaning services in Abidjan. How can I help you?">
-          Bonjour ! Je suis disponible pour répondre à vos questions sur nos services de nettoyage à Abidjan. Comment puis-je vous aider ?
+        <p data-fr="👋 Bonjour ! Je suis disponible pour répondre à vos questions sur nos services de nettoyage à Abidjan. Comment puis-je vous aider ?" data-en="👋 Hello! I am available to answer your questions about our cleaning services in Abidjan. How can I help you?">
+          👋 Bonjour ! Je suis disponible pour répondre à vos questions sur nos services de nettoyage à Abidjan. Comment puis-je vous aider ?
         </p>
         <div class="wa-chat__quick">
-          <a href="https://wa.me/2250718837581?text=Bonjour%2C%20je%20souhaite%20un%20devis%20de%20nettoyage." target="_blank" rel="noopener noreferrer" data-fr="Demander un devis" data-en="Request a quote">Demander un devis</a>
-          <a href="https://wa.me/2250718837581?text=Quels%20sont%20vos%20services%20de%20nettoyage%20%3F" target="_blank" rel="noopener noreferrer" data-fr="Voir nos services" data-en="See our services">Voir nos services</a>
-          <a href="https://wa.me/2250718837581?text=Bonjour%2C%20j%27ai%20besoin%20d%27une%20intervention%20urgente." target="_blank" rel="noopener noreferrer" data-fr="Urgence nettoyage" data-en="Cleaning emergency">Urgence nettoyage</a>
+          <a href="https://wa.me/2250718837581?text=Bonjour%2C%20je%20souhaite%20un%20devis%20de%20nettoyage." target="_blank" rel="noopener noreferrer" data-fr="💰 Demander un devis" data-en="💰 Request a quote">💰 Demander un devis</a>
+          <a href="https://wa.me/2250718837581?text=Quels%20sont%20vos%20services%20de%20nettoyage%20%3F" target="_blank" rel="noopener noreferrer" data-fr="📋 Voir nos services" data-en="📋 See our services">📋 Voir nos services</a>
+          <a href="https://wa.me/2250718837581?text=Bonjour%2C%20j%27ai%20besoin%20d%27une%20intervention%20urgente." target="_blank" rel="noopener noreferrer" data-fr="🚨 Urgence nettoyage" data-en="🚨 Cleaning emergency">🚨 Urgence nettoyage</a>
         </div>
       </div>
     </div>
@@ -1130,6 +1130,6 @@
     <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
   </button>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=8adc98f8"></script>
 </body>
 </html>
